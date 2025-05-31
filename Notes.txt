@@ -1,0 +1,213 @@
+CDNs - Ontent Delivery Network
+
+To use react in script tag without installing
+
+use two CDN links - 
+1. First consists of pure React core 
+2. Second link is the React DOM 
+
+Two files cannot be merged because react works on many other platfoms including mobile platforms as well, that why two different files.
+
+--------------------------------------------------------------------------------------------------------------------------------
+Episode 2 - Igniting our App
+
+HTML,CSS and JS code is not ready to push to production,
+so we need to optimize it.
+
+Minify, bundle files, compress files, optimize the images 
+
+How?
+- Code Splitting, Chunking, Bundling, Image optimization, Remove the console logs, Minify the code, compress etc, and a lot more.
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+What to read - Blogs, articles?
+- Keys indexes in react
+- File & Folder structure in react?
+- Search React Fibre - github(acdlite)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+package.json is a configuration for NPM
+NPM is a package manager which manages the versions of packages and stores in package.json.
+
+pacakge-lock.json - keepsa record of every exact versionthat is being installed.
+
+Vite, parcel and webpack are a bundler which bundles the code or app or packages the app and ships it to production.
+
+CRA uses babel and webpack.
+
+Two types of dependencies -
+Dev Dependencies - required in development phase
+normal dependencies - used in production 
+
+"^" or "~" in package.json before versions
+^ means update both minor- and patch-level updates are allowed, but not major updates - This allows versions >=1.2.3 but <2.0.0.
+~ means it will update to all future patch version - major version - This allows versions >=1.2.3 but <1.3.0.
+
+Transitive dependencies -
+when every other pacakage is dependent on other packages.
+---------------------------------------------------------------------------------------------------------------------------------
+
+**************************
+to install use NPM
+to execute package use NPX
+**************************
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+- How react code is executed behind the scenes?
+
+React.createElement is not a HTML element. When we render the React object on to the DOM then it becomes a HTML element.
+
+React.createElement creates a react element which is at the end of the day is an JS object => which when rendered on DOM creates a HTML element
+or React.createElement creates an object nd when it is rendered over the DOM it becomes HTML element.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+- How JSX is different?
+JSX is separate from React, its not a part of React.
+JSX is not HTML in JS, its a HTML like Syntax only.
+
+////////////////////////////////////////
+- How the react code is converted into JS?
+JSX => JS using BABEL
+React code is transpiled before it reaches the JS Engine and PARCEL is 
+transpiling(converted into browser understamdable code) and using BABEL to do this.
+
+JSX code is transpiled into JS using BABEL and is converted into React.createElement => ReactElement-JS Object => HTML Element(render)  
+JSX will prevent Cross side scripting and it sanitizes the data automatically.
+
+////////////////////////////////////////
+- BABEL?
+BABEL is a transpiler.
+It is a JS Compiler.
+
+
+
+///////////////////////////////////////
+- Components
+Class based components - OLD
+Functional Component - NEW
+
+- Component Composition
+Writing a component inside another component.
+
+
+//////////////////////////////////////
+how to plan a front end project
+- A layout, ui
+-Decide Components
+  - Header
+    - Logo
+    - Nav Items
+  - Body
+    - Search
+    - RestaurantContainer
+      - RestaurantCard
+  - Footer
+    - Copyright
+    - Links
+    - Address
+    - Contact
+
+
+///////////////////////////////////////
+Props?
+passing props is like passing argumments to a function.
+When data has to be passed dyamically to another component, we use props.
+
+- destructuring
+const RestaurantCard = (props) =>{
+    const {resName, cuisine} = props;
+
+    console.log(props.resName);
+    console.log(props.cuisine);
+}
+
+- destructuring on the fly
+const RestaurantCard = ({resName, cuisine}) =>{
+
+    console.log(resName);
+    console.log(cuisine);
+}
+
+
+
+//////////////////////////////
+config driven UI - when you open a swiggy webApp, website is driven by config means controlling the ui using the data, 
+so the data is different for different places and different data for those palces we'll be gettign from the backend api.
+
+
+//////////////////////////////////
+key prop on componenet?
+- So, when a new component is added react does not know which new component is added nd to be rendered, so adding a key is must.
+- with "key={id}" react knows the position of the component.
+- DoNot use indexes as key!!
+
+
+
+
+
+////////////////////////////////////
+two type of Imports/Exports?
+
+export default Component_Name;
+import Component_Name from "path";
+
+export const Component_Name;
+import {Component_Name} from "path";
+
+The default export is used when you want to export a single value or function, and it's imported without curly braces.
+Named exports are used when you want to export multiple values from the module, and they are imported with curly braces.
+
+
+Fact about exports?
+can we export same component with a named export and a default export?
+
+-Why do this?
+This approach allows the consumer of your module to choose how they want to import the component—either by default or by name.
+It can be helpful if you want to provide a default export for convenience, while still making it possible for users to import it by name if needed.
+-Caveat:
+While this is valid JavaScript, it’s not a typical practice. Using both exports can make the code harder to maintain and potentially confuse developers as to which export should be used.
+Generally, it’s best to pick one export style and stick with it for clarity.
+
+/////////////////////////////////////////////////
+Note IMPORTANT: Whenever the UI changes or state variable changes react rerenders the component.
+
+
+IMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANT
+Why React is Fast?
+
+- Reconcilation Algorithm (React Fiber) in React16
+Virtual DOM is a representation of Actual DOM. It is a object.
+
+- Diff Algorithm
+Finds out the difference between the updated virtual DOM and Actual DOM
+
+React is doing efficient DOM manipulation coz it has Virtual DOM.
+
+As soon as you call the setter function of usestate hook React will 
+look for the difference b/w  both DOMs and update the UI that why it is fast.
+
+
+////////////////////////////////////////////////////////
+CORS - It is a mechanism which uses additional HTTP header which tells the browser whether a specific 
+web app can share a resourse with another web app. 
+
+Both the web app have to hve different origins.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+MONOLITH vs MICROSERVICE
+
+Monolith -  
+
+Microservices - It gave us separation of concern.
+(BackEnd, UI, Auth, Database, SMS Service)
+
+Single service where each project has its own job to do.
+
+How all services communicate with each other? 
+
+Loads -> Render -> API -> Render

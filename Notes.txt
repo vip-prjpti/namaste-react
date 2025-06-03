@@ -40,7 +40,7 @@ Vite, parcel and webpack are a bundler which bundles the code or app or packages
 CRA uses babel and webpack.
 
 Two types of dependencies -
-Dev Dependencies - required in development phase
+-D - Dev Dependencies - required in development phase
 normal dependencies - used in production 
 
 "^" or "~" in package.json before versions
@@ -56,20 +56,29 @@ to install use NPM
 to execute package use NPX
 **************************
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+---------------------------------------------------------------------------------------------------------------------------------
 - How react code is executed behind the scenes?
+
+React element is an object.
 
 React.createElement is not a HTML element. When we render the React object on to the DOM then it becomes a HTML element.
 
 React.createElement creates a react element which is at the end of the day is an JS object => which when rendered on DOM creates a HTML element
 or React.createElement creates an object nd when it is rendered over the DOM it becomes HTML element.
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+---------------------------------------------------------------------------------------------------------------------------------
 - How JSX is different?
 JSX is separate from React, its not a part of React.
 JSX is not HTML in JS, its a HTML like Syntax only.
 
-////////////////////////////////////////
+JSx is JSX - its a dfferent syntax.
+
+---------------------------------------------------------------------------------------------------------------------------------
+JS engine does not understant react or jsx code, it only understant ES6 syntax.
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------------------------------------
 - How the react code is converted into JS?
 JSX => JS using BABEL
 React code is transpiled before it reaches the JS Engine and PARCEL is 
@@ -78,23 +87,24 @@ transpiling(converted into browser understamdable code) and using BABEL to do th
 JSX code is transpiled into JS using BABEL and is converted into React.createElement => ReactElement-JS Object => HTML Element(render)  
 JSX will prevent Cross side scripting and it sanitizes the data automatically.
 
-////////////////////////////////////////
+---------------------------------------------------------------------------------------------------------------------------------
 - BABEL?
 BABEL is a transpiler.
 It is a JS Compiler.
 
 
 
-///////////////////////////////////////
+---------------------------------------------------------------------------------------------------------------------------------
 - Components
 Class based components - OLD
-Functional Component - NEW
+Functional Component - NEW - A piece of function returning some jsx is fucntional component.
 
 - Component Composition
 Writing a component inside another component.
 
+root.render converts the componenet into html element.
 
-//////////////////////////////////////
+---------------------------------------------------------------------------------------------------------------------------------
 how to plan a front end project
 - A layout, ui
 -Decide Components
@@ -112,7 +122,7 @@ how to plan a front end project
     - Contact
 
 
-///////////////////////////////////////
+---------------------------------------------------------------------------------------------------------------------------------/
 Props?
 passing props is like passing argumments to a function.
 When data has to be passed dyamically to another component, we use props.
@@ -134,12 +144,12 @@ const RestaurantCard = ({resName, cuisine}) =>{
 
 
 
-//////////////////////////////
+---------------------------------------------------------------------------------------------------------------------------------
 config driven UI - when you open a swiggy webApp, website is driven by config means controlling the ui using the data, 
 so the data is different for different places and different data for those palces we'll be gettign from the backend api.
 
 
-//////////////////////////////////
+---------------------------------------------------------------------------------------------------------------------------------
 key prop on componenet?
 - So, when a new component is added react does not know which new component is added nd to be rendered, so adding a key is must.
 - with "key={id}" react knows the position of the component.
@@ -149,7 +159,7 @@ key prop on componenet?
 
 
 
-////////////////////////////////////
+---------------------------------------------------------------------------------------------------------------------------------
 two type of Imports/Exports?
 
 export default Component_Name;
@@ -172,7 +182,7 @@ It can be helpful if you want to provide a default export for convenience, while
 While this is valid JavaScript, it’s not a typical practice. Using both exports can make the code harder to maintain and potentially confuse developers as to which export should be used.
 Generally, it’s best to pick one export style and stick with it for clarity.
 
-/////////////////////////////////////////////////
+---------------------------------------------------------------------------------------------------------------------------------
 Note IMPORTANT: Whenever the UI changes or state variable changes react rerenders the component.
 
 
@@ -191,7 +201,7 @@ As soon as you call the setter function of usestate hook React will
 look for the difference b/w  both DOMs and update the UI that why it is fast.
 
 
-////////////////////////////////////////////////////////
+---------------------------------------------------------------------------------------------------------------------------------
 CORS - It is a mechanism which uses additional HTTP header which tells the browser whether a specific 
 web app can share a resourse with another web app. 
 

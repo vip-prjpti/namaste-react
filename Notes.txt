@@ -160,7 +160,9 @@ key prop on componenet?
 - with "key={id}" react knows the position of the component.
 - DoNot use indexes as key!!
 
-
+if there one more ui element added so reacct does not know at what place that element came, so react cleans the container and 
+rerenders if no key prop is used, but if we use key prop then react knows and can uniquely identify the react elements, 
+then it will only render the newly added element instead of rerendering all the previous elements, which slows the webpage.
 
 
 

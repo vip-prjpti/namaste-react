@@ -37,6 +37,28 @@
     width: 200px;
     height: 400px;
 }
+
+
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: auto;
+}
+.card>*{
+    margin: 10px;
+}
+.resto-card{
+    max-width: 220px;
+    display: inline-block;
+    border: 2px solid black;
+}
+.resto-card img{
+    margin: 5px;
+    padding: 5px;
+    width: 200px;
+}
 .res-card:hover{
     border: 1px solid black;
     cursor: pointer;

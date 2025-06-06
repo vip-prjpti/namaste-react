@@ -2,6 +2,9 @@ const RestaurantCard = (props) => {
     const { resData } = props;
   
 
+    
+                
+
     const base_URL = "https://image.tmdb.org/t/p/original/";
     // const { name, adress, restaurantPoint, status, minimumPrice } = resData;
     const { title, adress, vote_average, status, minimumPrice } = resData;

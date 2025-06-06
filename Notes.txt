@@ -105,6 +105,8 @@ Writing a component inside another component.
 root.render converts the componenet into html element.
 
 ---------------------------------------------------------------------------------------------------------------------------------
+Episode 4
+
 how to plan a front end project
 - A layout, ui
 -Decide Components
@@ -148,6 +150,9 @@ const RestaurantCard = ({resName, cuisine}) =>{
 config driven UI - when you open a swiggy webApp, website is driven by config means controlling the ui using the data, 
 so the data is different for different places and different data for those palces we'll be gettign from the backend api.
 
+The Api, the data is the config - an api data can be differnet for DElhi, for mumbai, for bangalore.
+
+UI Layer + Data Layer = Front end App
 
 ---------------------------------------------------------------------------------------------------------------------------------
 key prop on componenet?

@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/vip-prjpti/namaste-react#readme",
   "devDependencies": {
+    "console-browserify": "^1.2.0",
     "parcel": "^2.14.4",
     "process": "^0.11.10"
   },

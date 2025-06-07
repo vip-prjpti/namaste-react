@@ -167,7 +167,12 @@ then it will only render the newly added element instead of rerendering all the 
 
 
 ---------------------------------------------------------------------------------------------------------------------------------
+Episode 5:
+
 two type of Imports/Exports?
+
+In one file we can write only one default export not more than that.
+
 
 export default Component_Name;
 import Component_Name from "path";
@@ -189,15 +194,27 @@ It can be helpful if you want to provide a default export for convenience, while
 While this is valid JavaScript, it’s not a typical practice. Using both exports can make the code harder to maintain and potentially confuse developers as to which export should be used.
 Generally, it’s best to pick one export style and stick with it for clarity.
 
+
+
+
 ---------------------------------------------------------------------------------------------------------------------------------
 Note IMPORTANT: Whenever the UI changes or state variable changes react rerenders the component.
 
+# React Hooks 
+- Normal Javascript utility fxns which has some superpower given to us by react developers.
+- useState() - Superpowerful state variable in react. Import using named import.
+ 
+- useEffect() - 
+
+The logic of updating the UI is known as rerendering - which is the superpower of react.
+- react is good at DOM manipulation which makes it faster.
 
 IMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANT
 Why React is Fast?
 
 - Reconcilation Algorithm (React Fiber) in React16
-Virtual DOM is a representation of Actual DOM. It is a object.
+Virtual DOM is a representation of Actual DOM. It is a normal JS object.
+Virtula DOM is React element.
 
 - Diff Algorithm
 Finds out the difference between the updated virtual DOM and Actual DOM
@@ -205,9 +222,9 @@ Finds out the difference between the updated virtual DOM and Actual DOM
 React is doing efficient DOM manipulation coz it has Virtual DOM.
 
 As soon as you call the setter function of usestate hook React will 
-look for the difference b/w  both DOMs and update the UI that why it is fast.
+look for the difference b/w  both DOMs and update the UI that's why it is fast.
 
-
+The second argument in useState hook - the setter fxn, it exist oz its kind of a trigger to start the diffing alogorithm.
 ---------------------------------------------------------------------------------------------------------------------------------
 CORS - It is a mechanism which uses additional HTTP header which tells the browser whether a specific 
 web app can share a resourse with another web app. 

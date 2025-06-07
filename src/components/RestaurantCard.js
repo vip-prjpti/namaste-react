@@ -1,30 +1,24 @@
-const RestaurantCard = (props) => {
-    const { resData } = props;
-  
+import { CDN_URL } from "../../utils/constants"
 
-    
-                
 
-    const base_URL = "https://image.tmdb.org/t/p/original/";
-    // const { name, adress, restaurantPoint, status, minimumPrice } = resData;
-    const { title, adress, vote_average, status, minimumPrice } = resData;
-    return (
-      <div className="res-card">
-        <img
-          className="res-logo"
-          src={`${base_URL}${
-                resData.poster_path
-              }`}
-          alt="monster "
-        />
-        <h3>{title}</h3>
-        <h4>{adress}</h4>
-        <h4>{vote_average} </h4>
-        <h4>{status} </h4>
-        <h4>{minimumPrice} </h4>
+const RestoCard = ({ resData }) => {
+  const { cloudinaryImageId, name, cuisines, avgRating, sla, costForTwo } = resData?.info
+  return (
+
+    <div>
+      <div className="resto-card">
+
+        <img src={CDN_URL + cloudinaryImageId} alt="" />
+        <h3>{name}</h3>
+        <h3>{cuisines.join(", ")}</h3>
+        <h3>{avgRating}</h3>
+        <h3>{sla.deliveryTime} minutes</h3>
+        <h3>{costForTwo}</h3>
+
       </div>
-    );
-  };
+    </div>
+  );
+}
 
-  
-  export default RestaurantCard;
+
+export default RestoCard;

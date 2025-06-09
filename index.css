@@ -93,7 +93,13 @@
 }
 .shimmer-card{
     margin: 20px;
-    width: 200px;
+    width: 220px;
     height: 400px;
     background-color: rgb(216, 215, 215);
+}
+
+.login{
+    padding: 0 20px;
+    cursor: pointer;
+    
 }

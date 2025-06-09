@@ -204,10 +204,7 @@ Note IMPORTANT: Whenever the UI changes or state variable changes react rerender
 - Normal Javascript utility fxns which has some superpower given to us by react developers.
 - useState() - Superpowerful state variable in react. Import using named import.
  
-- useEffect() - 
 
-The logic of updating the UI is known as rerendering - which is the superpower of react.
-- react is good at DOM manipulation which makes it faster.
 
 IMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANTIMPORTANT
 Why React is Fast?
@@ -238,6 +235,7 @@ MONOLITH vs MICROSERVICE
 Monolith -  
 
 Microservices - It gave us separation of concern.
+Single responsibility principle where each and every service has its own job.
 (BackEnd, UI, Auth, Database, SMS Service)
 
 Single service where each project has its own job to do.
@@ -245,3 +243,52 @@ Single service where each project has its own job to do.
 How all services communicate with each other? 
 
 Loads -> Render -> API -> Render
+
+On different ports - different services can be deployed
+then all these ports can be deployed onto a same domain name.
+
+:1234 - UI - /
+:1000 - BE - /api
+:3000 - SMS - /SMS
+
+How UI fetches data from the backend?
+- When to make an API call?
+Approach 1 - As soon as the page loads- make the API call and then when we get the data - render the UI
+Approach 2 - As soon as the page loads - Render the UI whatever you have (skeleton)- Make the API call - Render the UI when you get the data.
+
+Approach 2 gives better UX - React has one of the best render cycles - Always use Approach 2
+
+# useEffect hook
+- useEffect() - 
+
+The logic of updating the UI is known as rerendering - which is the superpower of react.
+- react is good at DOM manipulation which makes it faster.
+
+useEffect will be called when the component is rendered and it will quickly call the useEffect hook.
+If you want to do something after the render use usEffect hook.
+
+fetch() - given by browser - to call API
+
+eg - 
+useEffect(() => {
+  fetchData()
+}, [])
+
+const fetchData = async () =>{
+  const data = await fetch("https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=12.9628669&lng=77.57750899999999&carousel=true&third_party_vendor=1")
+  const json = await data.json();
+  
+  // optional Chaining
+  setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+  console.log(json);
+  // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+}
+
+# SHimmer UI
+
+Important question - since you cannot change a const variable, then how you are modifying the variable using setter method of useState.
+eg.
+const [btnName, setBtnName] = useState("Login");
+
+- In the above statement "Login" is the variable name assigned to const btnName but when you call setBtnName("Logout") - It change s the variable name to "Logout"
+- because when setBtnName is called the whole component is renderd again and btnName is a new variable at that time so the "Logout" variable is being assigned to the btnName.

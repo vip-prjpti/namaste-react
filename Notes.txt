@@ -292,3 +292,6 @@ const [btnName, setBtnName] = useState("Login");
 
 - In the above statement "Login" is the variable name assigned to const btnName but when you call setBtnName("Logout") - It change s the variable name to "Logout"
 - because when setBtnName is called the whole component is renderd again and btnName is a new variable at that time so the "Logout" variable is being assigned to the btnName.
+
+
+- Whenever state variable updates, react triggers a reconcilation cycle (re-render the component)

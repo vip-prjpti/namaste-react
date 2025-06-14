@@ -202,7 +202,9 @@ Note IMPORTANT: Whenever the UI changes or state variable changes react rerender
 
 # React Hooks 
 - Normal Javascript utility fxns which has some superpower given to us by react developers.
-- useState() - Superpowerful state variable in react. Import using named import.
+
+# useState() - Superpowerful state variable in react. Import using named import.
+- 
  
 
 
@@ -264,8 +266,12 @@ Approach 2 gives better UX - React has one of the best render cycles - Always us
 The logic of updating the UI is known as rerendering - which is the superpower of react.
 - react is good at DOM manipulation which makes it faster.
 
-useEffect will be called when the component is rendered and it will quickly call the useEffect hook.
+- useEffect will be called when the component is rendered and it will quickly call the useEffect hook.
 If you want to do something after the render use usEffect hook.
+
+- If no dependency array => useEffect is called on every component render
+- If empty dependency array => useEffect is called only on initial component render (just once)
+- If dependency array is  [btnNameReact] => every time btnName React changes useEffect is called. 
 
 fetch() - given by browser - to call API
 
@@ -277,14 +283,15 @@ useEffect(() => {
 const fetchData = async () =>{
   const data = await fetch("https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=12.9628669&lng=77.57750899999999&carousel=true&third_party_vendor=1")
   const json = await data.json();
-  
-  // optional Chaining
+  x
+  // optional Chaining 
   setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   console.log(json);
   // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
 }
 
 # SHimmer UI
+
 
 Important question - since you cannot change a const variable, then how you are modifying the variable using setter method of useState.
 eg.
@@ -295,3 +302,34 @@ const [btnName, setBtnName] = useState("Login");
 
 
 - Whenever state variable updates, react triggers a reconcilation cycle (re-render the component)
+
+
+# Routing in React
+
+Do routing configuration
+- import createBrowserRouter from 'react-router-dom'
+- createBroeserRouter takes a list of paths
+ eg. const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <AppLayout />,
+    children: [
+      {
+        path: '/',
+        element: <Body />
+      },
+      {
+        path: '/about',
+        element: <About />
+      }
+    ],
+    errorElement: <Error />
+
+  },
+])
+- use Error Element- use Outlet from react-router
+
+Two types of routing in web apps
+
+- Client side routing
+- server side routing

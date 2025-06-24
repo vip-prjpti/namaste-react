@@ -1,7 +1,7 @@
 import { CDN_URL } from "../../utils/constants"
 
 
-const RestoCard = ({ resData }) => {
+const RestaurantCard = ({ resData }) => {
   const { cloudinaryImageId, name, cuisines, avgRating, sla, costForTwo } = resData?.info
   return (
 
@@ -21,4 +21,4 @@ const RestoCard = ({ resData }) => {
 }
 
 
-export default RestoCard;
+export default RestaurantCard;

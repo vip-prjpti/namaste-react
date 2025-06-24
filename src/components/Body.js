@@ -1,8 +1,9 @@
-import RestoCard from "./RestaurantCard";
+import RestaurantCard from "./RestaurantCard";
 // import resObj from "../../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import {Link} from "react-router"
+import { Link } from "react-router"
+import {useOnlineStatus} from '../../utils/useOnlineStatus';
 
 const Body = () => {
 
@@ -37,6 +38,14 @@ const Body = () => {
   //   return <Shimmer></Shimmer>
   // }
 
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false) {
+    return (
+      <h1>Check your connection! Looks like you are offline</h1>
+    )
+  }
+
   const searchRestaurant = () => {
     const filteredRestaurant = listOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
     console.log(filteredRestaurant);
@@ -62,7 +71,7 @@ const Body = () => {
 
           {filteredRestaurant.map((restaurant) =>
           (<Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}>
-            <RestoCard resData={restaurant} />
+            <RestaurantCard resData={restaurant} />
           </Link>
           ))}
         </div>

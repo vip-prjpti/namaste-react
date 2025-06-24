@@ -277,7 +277,9 @@ fetch() - given by browser - to call API
 
 eg - 
 useEffect(() => {
-  fetchData()
+  fetchData();
+
+  return = () => {};
 }, [])
 
 const fetchData = async () =>{
@@ -333,3 +335,53 @@ Two types of routing in web apps
 
 - Client side routing
 - server side routing
+
+
+# class based component
+
+Constructor - The constructor method is the first to be called when a component is created. It's where we typically initialize the component's state and bind event handlers.
+
+Render - The render method is responsible for rendering the component's UI. It must return a React element (typically JSX) representing the component's structure.
+
+ComponentDidMount - This method is called immediately after the component is inserted into the DOM. It's often used for making AJAX requests, setting up subscriptions, or other one-time initializations.
+
+ComponentDidUpdate - This method is called after the component has been updated (re-rendered) due to changes in state or props. It's often used for side effects, like updating the DOM in response to state or prop changes.
+
+ComponentWillUnmount - This method is called just before the component is removed from the DOM. It's used to clean up resources or perform any necessary cleanup.
+
+# Props in class based components
+- constructor(props) - we use super method and props as an argument in the constructor of the child class.
+- When the class loads, a
+- super(props) - It is used for: 
+
+1. Access to parents class constructor - super(props) is used to invoke the constructor of the parent class, 
+ensuring the parents class's initializations is performed before the child class constructor code is executed, 
+to maintain inheritance chain correctly.
+
+2. passing props to parents constructor - By writing this we ensure that the props object is correctly passed to the parents class constructor.
+This is important because the parent class may need to set up its properties or handle the props somehow. By calling super(props), 
+we make the props available for the parent class's constructor to work with.
+
+3. When There are multiple children class components then the DidMount is not called in a serial manner. it will call the constructor and 
+render of parent then the constructor & render of first child then the constructor & child of second class then the component DidMount
+of first child then the didMount of second child class then the didMount of parent class.
+
+- React optimizes the didMount of the child classes.
+
+4. Refer to the lifestyle diagram - React has two phases - Render Phase and Commit Phase 
+
+Constructor called - Render is called - DOM is updated - Component didMpunt is called (a single batch)
+
+Render phase is fast and commit phasse is slow so react bathces the didMount phase (DOM or sideEffects) in the commit phase.
+
+5. Diff is calculated - reconcilation happens - in a single batch DOM is updated during the componentDidMount phase.
+
+6. componentWillUnmount - We need to clear somethings while leaving the page
+
+
+# Episode 9 - Optimizong our App
+
+- Single Responsibility Principle - Single component follows a single functionality.
+- Mainatable, Reusable, Testable
+- 
+

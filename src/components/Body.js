@@ -57,17 +57,17 @@ const Body = () => {
   return listOfRestaurants.length === 0 ? (
     <Shimmer></Shimmer>) : (
     <>
-      <div className="filter">
-        <div className="search">
-          <input type="text" name="" id="" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} />
-          <button onClick={() => {
+      <div className="filter flex items-center">
+        <div className="search m-4 p-4 ">
+          <input type="text" className="border border-solid border-black" name="" id="" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} />
+          <button className="px-4 py-2 bg-green-200 rounded-lg" onClick={() => {
             searchRestaurant()
           }}>Search</button>
         </div>
-        <button className="filter-btn" onClick={() => { filterRestaurant() }}>Filter Restaurants</button>
+        <button className="filter-btn bg-gray-200 p-4 rounded-lg" onClick={() => { filterRestaurant() }}>Filter Restaurants</button>
       </div>
       <div className="swiggy-restaurants">
-        <div className="card">
+        <div className="grid grid-cols-5">
 
           {filteredRestaurant.map((restaurant) =>
           (<Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}>

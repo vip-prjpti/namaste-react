@@ -13,7 +13,7 @@ export const Header = () => {
     <div className="flex justify-between items-center bg-blue-200 shadow-lg">
       <div className="logo-container">
         <img
-          className="w-56"
+          className="w-24"
           src={LOGO_URL}
           alt=""
         />

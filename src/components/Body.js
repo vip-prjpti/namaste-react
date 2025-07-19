@@ -14,7 +14,7 @@ const Body = () => {
 
   // let listOfRestaurants = resObj.restaurants;
   const filterRestaurant = () => {
-    const filteredRestaurants = listOfRestaurants.filter((res) => res.info.avgRating > 4.2);
+    const filteredRestaurants = listOfRestaurants.filter((res) => res.info.avgRating > 4.0);
     setListOfRestaurants(filteredRestaurants);
     console.log(listOfRestaurants);
   }
@@ -27,9 +27,9 @@ const Body = () => {
     const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=12.9628669&lng=77.57750899999999&carousel=true&third_party_vendor=1")
     const json = await data.json();
 
-    setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    console.log(json);
+    setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    console.log(json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants);
     // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
   }
 
@@ -67,7 +67,7 @@ const Body = () => {
         <button className="filter-btn bg-gray-200 p-4 rounded-lg" onClick={() => { filterRestaurant() }}>Filter Restaurants</button>
       </div>
       <div className="swiggy-restaurants">
-        <div className="grid grid-cols-5">
+        <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1">
 
           {filteredRestaurant.map((restaurant) =>
           (<Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}>

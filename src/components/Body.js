@@ -1,9 +1,10 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard ,{withPromotedLabel} from "./RestaurantCard";
 // import resObj from "../../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router"
 import {useOnlineStatus} from '../../utils/useOnlineStatus';
+
 
 const Body = () => {
 
@@ -11,6 +12,8 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   // let listOfRestaurants = resObj.restaurants;
   const filterRestaurant = () => {

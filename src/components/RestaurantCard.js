@@ -20,5 +20,18 @@ const RestaurantCard = ({ resData }) => {
   );
 }
 
+// Higher Order Component
+// takes a componenet and returns an component 
+// input - RestaurantCard => RestaurantCardPromoted
+export  const withPromotedLabel = (RestaurantCard) =>{
+  return () =>{
+    return (
+      <div>
+        <label>Promoted</label>
+        <RestaurantCard />
+      </div>
+    )
+  }
+}
 
 export default RestaurantCard;

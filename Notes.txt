@@ -385,3 +385,9 @@ Render phase is fast and commit phasse is slow so react bathces the didMount pha
 - Mainatable, Reusable, Testable
 - 
 
+
+# Episode 10 - Data is the new Oil 
+
+- HOC - Higher order Component 
+- HOC are pure function or puer component coz we are not creating a new component, we are only using the exsiting component.
+- Lifting the state up 

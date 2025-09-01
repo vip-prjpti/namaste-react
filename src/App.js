@@ -8,7 +8,9 @@ import About from "./components/About";
 import Error from "./components/Error";
 
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router';
+import { Provider } from "react-redux";
 import RestaurantMenu from "./components/RestaurantMenu";
+import appStore from "../utils/appStore";
 
 // creating an Element using core React and JSX - Difference
 
@@ -57,12 +59,15 @@ import RestaurantMenu from "./components/RestaurantMenu";
 
 const AppLayout = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
+    <Provider store={appStore}>
+
+      <div className="app">
+        <Header />
+        <Outlet />
 
 
-    </div>
+      </div>
+    </Provider>
   );
 };
 
@@ -82,8 +87,8 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />
-  }
-],
+      }
+    ],
     errorElement: <Error />
 
   },

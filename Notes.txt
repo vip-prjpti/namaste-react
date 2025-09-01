@@ -285,7 +285,7 @@ useEffect(() => {
 const fetchData = async () =>{
   const data = await fetch("https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=12.9628669&lng=77.57750899999999&carousel=true&third_party_vendor=1")
   const json = await data.json();
-  x
+  
   // optional Chaining 
   setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   console.log(json);
@@ -391,3 +391,31 @@ Render phase is fast and commit phasse is slow so react bathces the didMount pha
 - HOC - Higher order Component 
 - HOC are pure function or puer component coz we are not creating a new component, we are only using the exsiting component.
 - Lifting the state up 
+- Controlled and Uncontrolled componenet
+- Props Drilling 
+- React Context
+
+
+# Episode 11 - Let's build our store
+
+- Redux
+  - Redux Dev Tools - easy debugging
+  - slices in redux store - parts or slices in one big object
+  - slice - small portion of a redux store
+  - to keep data separate, we make slices (cart slice, user slice etc.)
+  - you cannot update cart slice data - use DISPATCH and ACTION
+  - DISPATCH - when you click on a add to cart button then it will dispatch an action and then that action will call a function
+    which will modify the data inside the cart. addToCart->Dispatch->Action->Function()->modifies data
+  - Function() is known as REDUCER
+
+  - Read data from the cart - we will use SELECTOR
+  - CART -> SELECTOR -> show it onto the UI
+  - This is known as subscribing to the store  
+
+ SETUP - 
+ - Install @reduxjs/toolkit
+ - Build our store
+ - Connect our store to our app
+ - slice (cartSlice)
+ - dispatch(action)
+ - Selector 
